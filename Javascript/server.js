@@ -10,3 +10,5 @@ corsAnywhere.createServer({
 }).listen(port, host, () => {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
+
+//To start this server, run 'node Javascript/server.js' in terminal.

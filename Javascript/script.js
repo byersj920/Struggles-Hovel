@@ -14,6 +14,15 @@ async function fetchDeckData() {
   }
 }
 
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+const url = getQueryParam('url');
+
+console.log(url);
+
 async function initialize() {
   await fetchDeckData();
   console.log(deckData);
