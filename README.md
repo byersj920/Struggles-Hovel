@@ -1,1 +1,0 @@
-# Struggle-s-Hovel
