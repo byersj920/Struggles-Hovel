@@ -1,10 +1,11 @@
 import './App.css';
+import TextDisplay from './Components/TextDisplay';
 
 function App() {
   return (
     <div className="App">
 
-      <p>Hello!</p>
+      <TextDisplay />
       
     </div>
   );
