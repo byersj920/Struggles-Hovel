@@ -30,6 +30,7 @@ const CardTesting = () => {
       {filteredCards.map(card => (
         <div key={card.id}>
           <h3>{String(countCards())} {card.name}</h3>
+          <img src={card.image_uris.small} alt={card.name}></img>
         </div>
       ))}
     </div>
