@@ -13,9 +13,7 @@ const CardTesting = () => {
       });
   }, []);
 
-  if (!cardData) {
-    return <div>Loading...</div>;
-  }
+  if (!cardData) {return <div>Loading...</div>;}
 
   let cardCount = 0;
   function countCards () {
