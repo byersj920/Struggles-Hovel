@@ -1,0 +1,45 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 300px;
+  margin: 1rem;
+}
+
+.card-stack {
+  align-items: center;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.card-name {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-stack {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.card-button {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: auto;
+}
