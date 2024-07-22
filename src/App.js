@@ -1,6 +1,6 @@
 import './App.css';
 import TextDisplay from './Components/TextDisplay';
-import UsernameSelector from './Components/UsernameSelector';
+import DiscordNameSelector from './Components/DiscordNameSelector';
 import CardTesting from './Components/card-testing';
 
 
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
 
       <TextDisplay />
-      <UsernameSelector />
+      <DiscordNameSelector />
       <CardTesting />
       
     </div>
