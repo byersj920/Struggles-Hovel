@@ -23,7 +23,6 @@ const CardDisplay = () => {
   const filteredCards = cardData.filter(card => card.set === "otj");
 
   filteredCards.sort((a, b) => a.collector_number - b.collector_number);
-  console.log()
 
   return (
     <div className="card-container">
