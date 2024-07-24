@@ -12,6 +12,28 @@ export default function DiscordNameSelector() {
     setDiscordName(event.target.value);
   };
 
+  const discordNamesArray = [
+    "Captainspazam (Struggles)",
+    "CombatWombat (Kyle)",
+    "Cwwisch (Chad)",
+    "Droopsnout (Grey)",
+    "EtheriumSculptor (Jake)",
+    "TheDragonsFang (Iris)",
+    "Trax (Mateo)",
+    "MrMaps (Corey)",
+    "DLung7 (David)",
+    "Dwarf (Jon)",
+    "Strexco (EJ)",
+    "Eldritch_Butts (Tyler)",
+    "Jondre (Jack)",
+    "KingSMH (Shawn)",
+    "McDonaldsSprite (Hailey <3)",
+    "Meggplant (Egg)",
+    "Thesageknight (Nick)"
+  ];
+
+  discordNamesArray.sort((a, b) => a - b);
+
   return (
     <Box sx={{ minWidth: 800 }}>
       <FormControl sx={{ m: 1, minWidth: 300 }} >
@@ -23,9 +45,9 @@ export default function DiscordNameSelector() {
           label="DiscordName"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Captainspazam (Struggles)</MenuItem>
-          <MenuItem value={20}>McDonaldsSprite (Hailey)</MenuItem>
-          <MenuItem value={30}>Freakbro5 (Christan)</MenuItem>
+          {discordNamesArray.map(name => (
+            <MenuItem value={name}>{name}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

@@ -16,9 +16,7 @@ const CardDisplay = () => {
       });
   }, []);
 
-  if (!cardData) {
-    return <div>Loading...</div>;
-  }
+  if (!cardData) {return <div>Building the best cube ever...one second please!</div>;}
 
   const filteredCards = cardData.filter(card => card.set === "otj");
 
