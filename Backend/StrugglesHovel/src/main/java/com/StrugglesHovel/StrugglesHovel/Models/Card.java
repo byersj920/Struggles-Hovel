@@ -14,7 +14,7 @@ public class Card {
     private String name;
     private String rarity;
     private Integer cardNumber;
-    private String username;
+    private String usernames;
     private Integer numberNeeded;
     private Integer numberCollected = 0;
 
@@ -23,7 +23,7 @@ public class Card {
         this.name = name;
         this.rarity = rarity;
         this.cardNumber = cardNumber;
-        this.username = username;
+        this.usernames = username;
 
         switch (getRarity()) {
             case "Common" -> this.numberNeeded = 3;
@@ -57,11 +57,11 @@ public class Card {
     public void setCardNumber(Integer cardNumber) {
         this.cardNumber = cardNumber;
     }
-    public String getUsername() {
-        return username;
+    public String getUsernames() {
+        return usernames;
     }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsernames(String usernames) {
+        this.usernames = usernames;
     }
     public Integer getNumberNeeded() {
         return numberNeeded;
