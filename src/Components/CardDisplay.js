@@ -21,28 +21,37 @@ const CardDisplay = () => {
     return <div>Building the best cube ever...one second please!</div>;
   }
 
-  const filteredCards = cardData.filter(card => card.set === "otj");
-  filteredCards.sort((a, b) => a.collector_number - b.collector_number);
+  const filteredCards = cardData.filter(card => (card.set === "otj" && card.collector_number <= 272) || card.set === "otp" || card.set === "big");
+  
+  // Sort alphabetically by card name
+  filteredCards.sort((a, b) => a.name.localeCompare(b.name));
 
+  // Use this handleBackendSend to upload a large swath of card data to the database
   const handleBackendSend = async () => {
-    const cardTest = {
-      name: "Canyon Crab",
-      rarity: "common",
-      cardNumber: 27,
-      usernames: "Struggles"
-    };
-
     try {
-      const response = await axios.post('http://localhost:8080/api/cards', cardTest);
-      console.log('Response:', response.data);
+      const promises = filteredCards.map(card => {
+        const cardPayload = {
+          name: card.name,
+          rarity: card.rarity,
+          cardNumber: card.collector_number,
+          imageUri: card.image_uris.normal
+        };
+
+        return axios.post('http://localhost:8080/api/cards', cardPayload);
+      });
+
+      const responses = await Promise.all(promises);
+      responses.forEach(response => {
+        console.log('Response:', response.data);
+      });
     } catch (error) {
-      console.error('There was an error making the POST request!', error);
-    }
+      console.error('There was an error making the POST requests!', error);
+    } 
   };
 
   return (
     <div className="card-container">
-      <Button onClick={handleBackendSend}>Click Me!</Button>
+      <Button onClick={handleBackendSend}>Upload All Cards</Button>
       {filteredCards.map(card => (
         <div key={card.id} className="card">
           <Stack
@@ -59,8 +68,8 @@ const CardDisplay = () => {
               spacing={2}
               className="button-stack"
             >
-              <Button variant="contained" size="small" className="card-button">Add to Cube</Button>
-              <Button variant="outlined" size="small" className="card-button">Remove From Cube</Button>
+              <Button variant="contained" size="small" className="card-button">Add Card</Button>
+              <Button variant="outlined" size="small" className="card-button">Remove Card</Button>
             </Stack>
           </Stack>
         </div>
