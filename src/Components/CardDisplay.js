@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import './CardDisplay.css';
+import axios from 'axios';
 
 const CardDisplay = () => {
   const [cardData, setCardData] = useState(null);
 
   useEffect(() => {
-    import('../card-list.json')
+    import('./card-list.json')
       .then(data => {
         setCardData(data.default);
       })
@@ -16,14 +17,32 @@ const CardDisplay = () => {
       });
   }, []);
 
-  if (!cardData) {return <div>Building the best cube ever...one second please!</div>;}
+  if (!cardData) {
+    return <div>Building the best cube ever...one second please!</div>;
+  }
 
   const filteredCards = cardData.filter(card => card.set === "otj");
-
   filteredCards.sort((a, b) => a.collector_number - b.collector_number);
+
+  const handleBackendSend = async () => {
+    const cardTest = {
+      name: "Canyon Crab",
+      rarity: "common",
+      cardNumber: 27,
+      usernames: "Struggles"
+    };
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/cards', cardTest);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('There was an error making the POST request!', error);
+    }
+  };
 
   return (
     <div className="card-container">
+      <Button onClick={handleBackendSend}>Click Me!</Button>
       {filteredCards.map(card => (
         <div key={card.id} className="card">
           <Stack
