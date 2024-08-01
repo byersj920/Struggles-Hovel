@@ -14,12 +14,6 @@ public class CardController {
 
     @PostMapping
     public Card addCardToDatabase(@RequestBody Card card) {
-        System.out.println("Received card: " + card);
-        if (card.getName() != null && !card.getName().isEmpty()) {
-            return cardRepository.save(card);
-        } else {
-            Card testCard = new Card("Ankle Biter", "Common", 13, "McdonaldsSprite");
-            return cardRepository.save(testCard);
-        }
+        return cardRepository.save(card);
     }
 }

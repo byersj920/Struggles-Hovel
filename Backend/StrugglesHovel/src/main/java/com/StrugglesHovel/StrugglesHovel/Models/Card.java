@@ -17,12 +17,18 @@ public class Card {
     private String usernames;
     private Integer numberNeeded;
     private Integer numberCollected = 0;
+    private String color;
+    private Integer manaValue;
+    private String imageUri;
 
-    public Card(String name, String rarity, Integer cardNumber, String username) {
+    public Card(String name, String rarity, Integer cardNumber, String color, Integer manaValue,
+                String imageUri) {
         this.name = name;
         this.rarity = rarity;
         this.cardNumber = cardNumber;
-        this.usernames = username;
+        this.imageUri = imageUri;
+        this.color = color;
+        this.manaValue = manaValue;
 
         switch (getRarity()) {
             case "Common" -> this.numberNeeded = 4;
@@ -73,5 +79,23 @@ public class Card {
     }
     public void setNumberCollected(Integer numberCollected) {
         this.numberCollected = numberCollected;
+    }
+    public String getImageUri() {
+        return imageUri;
+    }
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
+    }
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public Integer getManaValue() {
+        return manaValue;
+    }
+    public void setManaValue(Integer manaValue) {
+        this.manaValue = manaValue;
     }
 }
