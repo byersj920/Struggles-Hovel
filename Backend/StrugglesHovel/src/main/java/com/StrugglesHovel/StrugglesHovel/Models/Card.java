@@ -18,15 +18,14 @@ public class Card {
     private Integer numberNeeded;
     private Integer numberCollected = 0;
 
-    public Card(Long id, String name, String rarity, Integer cardNumber, String username) {
-        this.id = id;
+    public Card(String name, String rarity, Integer cardNumber, String username) {
         this.name = name;
         this.rarity = rarity;
         this.cardNumber = cardNumber;
         this.usernames = username;
 
         switch (getRarity()) {
-            case "Common" -> this.numberNeeded = 3;
+            case "Common" -> this.numberNeeded = 4;
             case "Uncommon" -> this.numberNeeded = 2;
             case "Rare", "Mythic Rare" -> this.numberNeeded = 1;
         }

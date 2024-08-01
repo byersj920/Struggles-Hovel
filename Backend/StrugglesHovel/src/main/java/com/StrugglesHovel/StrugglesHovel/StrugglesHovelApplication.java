@@ -9,5 +9,4 @@ public class StrugglesHovelApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StrugglesHovelApplication.class, args);
 	}
-
 }
