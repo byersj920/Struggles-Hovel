@@ -32,7 +32,7 @@ export default function DiscordNameSelector() {
     "Thesageknight (Nick)"
   ];
 
-  discordNamesArray.sort((a, b) => a - b);
+  discordNamesArray.sort((a, b) => a.localeCompare(b)); // Sort alphabetically
 
   return (
     <Box sx={{ minWidth: 800 }}>
@@ -42,11 +42,11 @@ export default function DiscordNameSelector() {
           labelId="discord-name-select-label"
           id="discord-name-select"
           value={discordName}
-          label="DiscordName"
+          label="Discord Name"
           onChange={handleChange}
         >
-          {discordNamesArray.map(name => (
-            <MenuItem value={name}>{name}</MenuItem>
+          {discordNamesArray.map((name, index) => (
+            <MenuItem key={index} value={name}>{name}</MenuItem>
           ))}
         </Select>
       </FormControl>
