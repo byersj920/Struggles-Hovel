@@ -1,9 +1,11 @@
 package com.StrugglesHovel.StrugglesHovel.Models;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.util.List;
 
 @Entity
 public class Card {
@@ -17,27 +19,38 @@ public class Card {
     private String usernames;
     private Integer numberNeeded;
     private Integer numberCollected = 0;
-    private String color;
+    private String setCode;
     private Integer manaValue;
     private String imageUri;
 
-    public Card(String name, String rarity, Integer cardNumber, String color, Integer manaValue,
-                String imageUri) {
+    @ElementCollection
+    private List<String> colors;
+
+    public Card() {
+    }
+
+    public Card(String name, String rarity, Integer cardNumber, List<String> colors, Integer manaValue,
+                String imageUri, String setCode) {
         this.name = name;
         this.rarity = rarity;
         this.cardNumber = cardNumber;
-        this.imageUri = imageUri;
-        this.color = color;
+        this.colors = colors;
         this.manaValue = manaValue;
-
-        switch (getRarity()) {
-            case "Common" -> this.numberNeeded = 4;
-            case "Uncommon" -> this.numberNeeded = 2;
-            case "Rare", "Mythic Rare" -> this.numberNeeded = 1;
-        }
+        this.imageUri = imageUri;
+        this.setCode = setCode;
+        this.numberNeeded = calculateNumberNeeded(rarity); // Calculate number needed
     }
-    
-    //Getters and Setters
+
+    private Integer calculateNumberNeeded(String rarity) {
+        return switch (rarity) {
+            case "common" -> 4;
+            case "uncommon" -> 2;
+            case "rare", "mythic" -> 1;
+            default -> 0;
+        };
+    }
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -55,6 +68,7 @@ public class Card {
     }
     public void setRarity(String rarity) {
         this.rarity = rarity;
+        this.numberNeeded = calculateNumberNeeded(rarity); // Update number needed when rarity changes
     }
     public Integer getCardNumber() {
         return cardNumber;
@@ -86,16 +100,22 @@ public class Card {
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
     }
-    public String getColor() {
-        return color;
+    public List<String> getColors() {
+        return colors;
     }
-    public void setColor(String color) {
-        this.color = color;
+    public void setColors(List<String> colors) {
+        this.colors = colors;
     }
     public Integer getManaValue() {
         return manaValue;
     }
     public void setManaValue(Integer manaValue) {
         this.manaValue = manaValue;
+    }
+    public String getSetCode() {
+        return setCode;
+    }
+    public void setSetCode(String setCode) {
+        this.setCode = setCode;
     }
 }
