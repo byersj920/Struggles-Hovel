@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,10 @@ public class Card {
     private String name;
     private String rarity;
     private Integer cardNumber;
-    private String usernames;
+
+    @ElementCollection
+    private List<String> usernames = new ArrayList<>();
+
     private Integer numberNeeded;
     private Integer numberCollected = 0;
     private String setCode;
@@ -27,6 +31,7 @@ public class Card {
     private List<String> colors;
 
     public Card() {
+        this.usernames = new ArrayList<>();
     }
 
     public Card(String name, String rarity, Integer cardNumber, List<String> colors, Integer manaValue,
@@ -38,7 +43,8 @@ public class Card {
         this.manaValue = manaValue;
         this.imageUri = imageUri;
         this.setCode = setCode;
-        this.numberNeeded = calculateNumberNeeded(rarity); // Calculate number needed
+        this.numberNeeded = calculateNumberNeeded(rarity);
+        this.usernames = new ArrayList<>();
     }
 
     private Integer calculateNumberNeeded(String rarity) {
@@ -48,6 +54,19 @@ public class Card {
             case "rare", "mythic" -> 1;
             default -> 0;
         };
+    }
+
+    public void addUsername(String username) {
+        if (this.numberNeeded > 0) {
+            this.usernames.add(username);
+            this.numberNeeded = this.numberNeeded - 1;
+        }
+    }
+
+    public void removeUsername(String username) {
+        if (this.usernames != null && this.usernames.remove(username)) {
+            this.numberNeeded = this.numberNeeded + 1;
+        }
     }
 
     // Getters and Setters
@@ -68,7 +87,7 @@ public class Card {
     }
     public void setRarity(String rarity) {
         this.rarity = rarity;
-        this.numberNeeded = calculateNumberNeeded(rarity); // Update number needed when rarity changes
+        this.numberNeeded = calculateNumberNeeded(rarity);
     }
     public Integer getCardNumber() {
         return cardNumber;
@@ -76,11 +95,8 @@ public class Card {
     public void setCardNumber(Integer cardNumber) {
         this.cardNumber = cardNumber;
     }
-    public String getUsernames() {
+    public List<String> getUsernames() {
         return usernames;
-    }
-    public void setUsernames(String usernames) {
-        this.usernames = usernames;
     }
     public Integer getNumberNeeded() {
         return numberNeeded;
