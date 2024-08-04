@@ -3,113 +3,181 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import './CardDisplay.css';
 import axios from 'axios';
-import DiscordNameSelector from './DiscordNameSelector';
 import TextDisplay from './TextDisplay';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const CardDisplay = () => {
   const [cardData, setCardData] = useState(null);
-
-  //This pulls the card data from the json file rather than the database. This can be used
-  //when there are problems with the database.
-/*   useEffect(() => {
-    import('./card-list.json')
-      .then(data => {
-        setCardData(data.default);
-      })
-      .catch(error => {
-        console.error('Error loading JSON:', error);
-      });
-  }, []); */
-
+  const [discordName, setDiscordName] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('Starting data fetch...');
         const response = await axios.get('http://localhost:8080/api/cards');
-        console.log('Fetched Data:', response.data);
         setCardData(response.data);
       } catch (error) {
         console.error('Error fetching card data:', error);
       }
     };
-  
+
     fetchData();
   }, []);
-  
 
-  if (!cardData) {return <div>Building the best cube ever...one second please!</div>;}
-  
+  if (!cardData) {
+    return <div>Building the best cube ever...one second please!</div>;
+  }
+
   cardData.sort((a, b) => a.name.localeCompare(b.name));
 
-  // Use this handleBackendSend to upload a large swath of card data to the database
- /*  const handleBackendSend = async () => {
-    console.log("Sending Card Data...");
-    
-    try {
-      const data = await import('./card-list.json');
-      const cardList = data.default;
-      
-      const filteredCardsPrime = cardList.filter(card => 
-        (card.set === "otj" && card.collector_number <= 272) || 
-        card.set === "otp" || 
-        (card.set === "big" && card.collector_number <= 30)
-      );
-  
-      const promises = filteredCardsPrime.map(card => {
-        const cardPayload = {
-          name: card.name,
-          rarity: card.rarity,
-          cardNumber: card.collector_number,
-          colors: card.colors,
-          manaValue: card.cmc,
-          imageUri: card.image_uris.normal,
-          setCode: card.set
-        };
-  
-        return axios.post('http://localhost:8080/api/cards', cardPayload);
-      });
-  
-      const responses = await Promise.all(promises);
-      responses.forEach(response => {
-        console.log('Response:', response.data);
-      });
-  
-    } catch (error) {
-      console.error('There was an error making the POST requests!', error);
-    } 
-  }; */
-  //In addition, when using this code, you can upload it using this button:
-  //<Button onClick={handleBackendSend}>Upload All Cards</Button>
+  const handleChange = (event) => {setDiscordName(event.target.value);};
 
+  const discordNamesArray = [
+    "Captainspazam (Struggles)",
+    "CombatWombat (Kyle)",
+    "Cwwisch (Chad)",
+    "Droopsnout (Grey)",
+    "EtheriumSculptor (Jake)",
+    "TheDragonsFang (Iris)",
+    "Trax (Mateo)",
+    "MrMaps (Corey)",
+    "DLung7 (David)",
+    "Dwarf (Jon)",
+    "Strexco (EJ)",
+    "Eldritch_Butts (Tyler)",
+    "Jondre (Jack)",
+    "KingSMH (Shawn)",
+    "McDonaldsSprite (Hailey <3)",
+    "Meggplant (Egg)",
+    "Thesageknight (Nick)"
+  ];
+  discordNamesArray.sort((a, b) => a.localeCompare(b));
+
+  const addCard = async (cardId) => {
+    if (!discordName) {
+      alert("Please select a Discord name before adding a card.");
+      return;
+    }
+
+    try {
+      await axios.post('http://localhost:8080/api/cards/add', null, {
+        params: {
+          cardId: encodeURIComponent(cardId),
+          username: encodeURIComponent(discordName)
+        }
+      });
+      const response = await axios.get('http://localhost:8080/api/cards');
+      setCardData(response.data);
+    } catch (error) {
+      console.error('Error adding card:', error);
+    }
+  };
+
+  const removeCard = async (cardId) => {
+    if (!discordName) {
+      alert("Please select a Discord name before removing a card.");
+      return;
+    }
+
+    try {
+      await axios.post('http://localhost:8080/api/cards/remove', null, {
+        params: {
+          cardId: encodeURIComponent(cardId),
+          username: encodeURIComponent(discordName)
+        }
+      });
+      const response = await axios.get('http://localhost:8080/api/cards');
+      setCardData(response.data);
+    } catch (error) {
+      console.error('Error removing card:', error);
+    }
+  };
+
+  /* const addSpecificCards = async () => {
+    const specificCard = cardList.find(card => card.name === "Lost Jitte");
+    if (!specificCard) {
+      alert("Card not found in the JSON file.");
+      return;
+    }
+
+    const cardDetails = {
+      name: specificCard.name,
+      rarity: specificCard.rarity,
+      cardNumber: specificCard.collector_number,
+      colors: specificCard.colors,
+      manaValue: specificCard.cmc,
+      imageUri: specificCard.image_uris.normal,
+      setCode: specificCard.set,
+      usernames: [],
+    };
+
+    try {
+      await axios.post('http://localhost:8080/api/cards', cardDetails);
+      const response = await axios.get('http://localhost:8080/api/cards');
+      setCardData(response.data);
+    } catch (error) {
+      console.error('Error adding card:', error);
+    }
+  }; */
+
+  const totalCardsNeeded = cardData.reduce((total, card) => total + card.numberNeeded, 0);
 
   return (
     <div>
       <TextDisplay />
-      <DiscordNameSelector />
-       <div className="card-container">
-      {cardData.map(card => (
-        <div key={card.id} className="card">
-          <Stack
-            spacing={2}
-            direction="column"
-            alignItems="center"
-            className="card-stack"
+      <h2>Total Cards Needed: {totalCardsNeeded}</h2>
+      <Box sx={{ minWidth: 800 }}>
+        <FormControl sx={{ m: 1, minWidth: 300 }}>
+          <InputLabel id="discord-name-select-label">Discord Name</InputLabel>
+          <Select
+            labelId="discord-name-select-label"
+            id="discord-name-select"
+            value={discordName}
+            label="Discord Name"
+            onChange={handleChange}
           >
-            <img src={card.imageUri} alt={card.name} className="card-image"/>
-            <p className="card-name">{card.name}</p>
-            <p className="amount-needed">Amount Needed: {card.numberNeeded}</p>
-            <Stack
-              direction="row"
-              spacing={2}
-              className="button-stack"
-            >
-              <Button variant="contained" size="small" className="card-button">Add Card</Button>
-              <Button variant="outlined" size="small" className="card-button">Remove Card</Button>
-            </Stack>
-          </Stack>
-        </div>
-      ))}
+            {discordNamesArray.map((name, index) => (
+              <MenuItem key={index} value={name}>{name}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <div className="card-container">
+        {cardData.map(card => {
+          const decodedUsernames = card.usernames.map(username => decodeURIComponent(username));
+          const decodedDiscordName = decodeURIComponent(discordName);
+
+          const canRemove = decodedUsernames.includes(decodedDiscordName);
+          const cardBackgroundColor = card.numberNeeded === 0 ? '#b0eaa0' : 'white';
+
+          return (
+            <div key={card.id} className="card" style={{ backgroundColor: cardBackgroundColor }}>
+              <Stack
+                spacing={2}
+                direction="column"
+                alignItems="center"
+                className="card-stack"
+              >
+                <img src={card.imageUri} alt={card.name} className="card-image" />
+                <p className="card-name">{card.name}</p>
+                <p className="amount-needed">Amount Needed: {card.numberNeeded}</p>
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  className="button-stack"
+                >
+                  <Button variant="contained" size="small" className="card-button" onClick={() => addCard(card.id)}>Add Card</Button>
+                  {canRemove && (
+                    <Button variant="outlined" size="small" className="card-button" onClick={() => removeCard(card.id)}>Remove Card</Button>
+                  )}
+                </Stack>
+              </Stack>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
