@@ -1,11 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css'; // If you have any global styles
+import './App.css';
+import CardDisplay from './Components/CardDisplay';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+  return (
+    <div className="App">
+      <CardDisplay />
+    </div>
+  );
+}
+
+export default App;
