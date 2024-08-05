@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/struggles-Hovel/static/css/main.41edafb3.css",
+    "main.js": "/struggles-Hovel/static/js/main.c70d17ac.js",
+    "index.html": "/struggles-Hovel/index.html",
+    "main.41edafb3.css.map": "/struggles-Hovel/static/css/main.41edafb3.css.map",
+    "main.c70d17ac.js.map": "/struggles-Hovel/static/js/main.c70d17ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41edafb3.css",
+    "static/js/main.c70d17ac.js"
+  ]
+}
