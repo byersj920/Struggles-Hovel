@@ -9,6 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import cardList from './card-list.json';
 
 const CardDisplay = () => {
   const [cardData, setCardData] = useState(null);
@@ -97,7 +98,7 @@ const CardDisplay = () => {
   };
 
   /* const addSpecificCards = async () => {
-    const specificCard = cardList.find(card => card.name === "Lost Jitte");
+    const specificCard = cardList.find(card => card.name === "Slickshot Show-Off");
     if (!specificCard) {
       alert("Card not found in the JSON file.");
       return;
@@ -121,7 +122,7 @@ const CardDisplay = () => {
     } catch (error) {
       console.error('Error adding card:', error);
     }
-  }; */
+  };  */
 
   const totalCardsNeeded = cardData.reduce((total, card) => total + card.numberNeeded, 0);
 
