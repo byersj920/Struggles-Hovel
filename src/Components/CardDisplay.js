@@ -157,9 +157,6 @@ const CardDisplay = () => {
           value={specificCardName}
           onChange={(e) => setSpecificCardName(e.target.value)}
         />
-        <Button variant="contained" color="primary" onClick={addSpecificCards}>
-          Add Specific Card
-        </Button>
       </Box>
       <div className="card-container">
         {cardData.map(card => {
