@@ -9,7 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import cardList from './card-list.json';
+/* import cardList from './card-list.json'; */
 import TextField from '@mui/material/TextField';
 
 const CardDisplay = () => {
@@ -99,7 +99,7 @@ const CardDisplay = () => {
     }
   };
 
-  const addSpecificCards = async () => {
+ /*  const addSpecificCards = async () => {
     const specificCard = cardList.find(card => card.name === specificCardName);
     if (!specificCard) {
       alert("Card not found in the JSON file.");
@@ -124,7 +124,7 @@ const CardDisplay = () => {
     } catch (error) {
       console.error('Error adding card:', error);
     }
-  };
+  }; */
 
   const totalCardsNeeded = cardData.reduce((total, card) => total + card.numberNeeded, 0);
 
