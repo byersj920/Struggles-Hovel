@@ -10,10 +10,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import cardList from './card-list.json';
+import TextField from '@mui/material/TextField';
 
 const CardDisplay = () => {
   const [cardData, setCardData] = useState(null);
   const [discordName, setDiscordName] = useState('');
+  const [specificCardName, setSpecificCardName] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +36,7 @@ const CardDisplay = () => {
 
   cardData.sort((a, b) => a.name.localeCompare(b.name));
 
-  const handleChange = (event) => {setDiscordName(event.target.value);};
+  const handleChange = (event) => { setDiscordName(event.target.value); };
 
   const discordNamesArray = [
     "Captainspazam (Struggles)",
@@ -97,8 +99,8 @@ const CardDisplay = () => {
     }
   };
 
-  /* const addSpecificCards = async () => {
-    const specificCard = cardList.find(card => card.name === "Slickshot Show-Off");
+  const addSpecificCards = async () => {
+    const specificCard = cardList.find(card => card.name === specificCardName);
     if (!specificCard) {
       alert("Card not found in the JSON file.");
       return;
@@ -122,7 +124,7 @@ const CardDisplay = () => {
     } catch (error) {
       console.error('Error adding card:', error);
     }
-  };  */
+  };
 
   const totalCardsNeeded = cardData.reduce((total, card) => total + card.numberNeeded, 0);
 
@@ -145,6 +147,19 @@ const CardDisplay = () => {
             ))}
           </Select>
         </FormControl>
+      </Box>
+      <Box sx={{ m: 2 }}>
+        <TextField
+          id="specific-card-name"
+          label="Specific Card Name"
+          variant="outlined"
+          fullWidth
+          value={specificCardName}
+          onChange={(e) => setSpecificCardName(e.target.value)}
+        />
+        <Button variant="contained" color="primary" onClick={addSpecificCards}>
+          Add Specific Card
+        </Button>
       </Box>
       <div className="card-container">
         {cardData.map(card => {
