@@ -1,7 +1,6 @@
 # netlify.toml
 [build]
-  command = "npm run build"
-
+  command = "cat package.json && npm run build"
   publish = "build"
 
 [[redirects]]
