@@ -1,4 +1,4 @@
-2024-09-16T16:54:57.216-05:00  WARN 18940 --- [StrugglesHovel] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10d10h5m30s13ms821µs900ns).
+2024-09-16T16:54:57.216-05:00  WARN 18940 --- [StrugglesHovel] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10d10h5m30s13ms821ï¿½s900ns).
 2024-09-16T17:01:53.513-05:00  INFO 1748 --- [StrugglesHovel] [restartedMain] c.S.S.StrugglesHovelApplication          : Starting StrugglesHovelApplication using Java 17.0.9 with PID 1748 (C:\Users\capta\OneDrive\Desktop\Struggles-Hovel\Backend\Struggles-Hovel\Backend\StrugglesHovel\build\classes\java\main started by capta in C:\Users\capta\OneDrive\Desktop\Struggles-Hovel\Backend\Struggles-Hovel\Backend\StrugglesHovel)
 2024-09-16T17:01:53.513-05:00  INFO 1748 --- [StrugglesHovel] [restartedMain] c.S.S.StrugglesHovelApplication          : No active profile set, falling back to 1 default profile: "default"
 2024-09-16T17:01:53.513-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.boot.SpringApplication               : Loading source class com.StrugglesHovel.StrugglesHovel.StrugglesHovelApplication
@@ -164,12 +164,12 @@
 2024-09-16T17:01:56.622-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpa.CardRepository.fragments#0'
 2024-09-16T17:01:56.622-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaSharedEM_entityManagerFactory'
 2024-09-16T17:01:56.653-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaMappingContext'
-2024-09-16T17:01:56.653-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Initializing JpaMetamodelMappingContext…
+2024-09-16T17:01:56.653-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Initializing JpaMetamodelMappingContextï¿½
 2024-09-16T17:01:56.669-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Finished initializing JpaMetamodelMappingContext
 2024-09-16T17:01:56.685-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:01:56.716-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:01:56.731-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.beans.CachedIntrospectionResults     : Not strongly caching class [com.StrugglesHovel.StrugglesHovel.Models.Card] because it is not cache-safe
-2024-09-16T17:01:56.763-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepository…
+2024-09-16T17:01:56.763-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepositoryï¿½
 2024-09-16T17:01:56.763-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:01:56.794-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepository.
 2024-09-16T17:01:56.794-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'userController'
@@ -178,7 +178,7 @@
 2024-09-16T17:01:56.794-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpa.UserRepository.fragments#0'
 2024-09-16T17:01:56.794-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:01:56.794-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.beans.CachedIntrospectionResults     : Not strongly caching class [com.StrugglesHovel.StrugglesHovel.Models.User] because it is not cache-safe
-2024-09-16T17:01:56.810-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepository…
+2024-09-16T17:01:56.810-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepositoryï¿½
 2024-09-16T17:01:56.811-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:01:56.811-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepository.
 2024-09-16T17:01:56.811-05:00 DEBUG 1748 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'corsConfigurer'
@@ -1783,12 +1783,12 @@ Unconditional classes:
 2024-09-16T17:15:37.705-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpa.CardRepository.fragments#0'
 2024-09-16T17:15:37.721-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaSharedEM_entityManagerFactory'
 2024-09-16T17:15:37.736-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaMappingContext'
-2024-09-16T17:15:37.736-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Initializing JpaMetamodelMappingContext…
+2024-09-16T17:15:37.736-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Initializing JpaMetamodelMappingContextï¿½
 2024-09-16T17:15:37.752-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Finished initializing JpaMetamodelMappingContext
 2024-09-16T17:15:37.784-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:15:37.801-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:15:37.831-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.beans.CachedIntrospectionResults     : Not strongly caching class [com.StrugglesHovel.StrugglesHovel.Models.Card] because it is not cache-safe
-2024-09-16T17:15:37.857-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepository…
+2024-09-16T17:15:37.857-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepositoryï¿½
 2024-09-16T17:15:37.858-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:15:37.889-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepository.
 2024-09-16T17:15:37.901-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'userController'
@@ -1797,7 +1797,7 @@ Unconditional classes:
 2024-09-16T17:15:37.901-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpa.UserRepository.fragments#0'
 2024-09-16T17:15:37.901-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:15:37.905-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.beans.CachedIntrospectionResults     : Not strongly caching class [com.StrugglesHovel.StrugglesHovel.Models.User] because it is not cache-safe
-2024-09-16T17:15:37.905-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepository…
+2024-09-16T17:15:37.905-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepositoryï¿½
 2024-09-16T17:15:37.905-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:15:37.905-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepository.
 2024-09-16T17:15:37.905-05:00 DEBUG 16928 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'corsConfigurer'
@@ -3405,12 +3405,12 @@ Unconditional classes:
 2024-09-16T17:18:19.115-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpa.CardRepository.fragments#0'
 2024-09-16T17:18:19.115-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaSharedEM_entityManagerFactory'
 2024-09-16T17:18:19.146-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaMappingContext'
-2024-09-16T17:18:19.146-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Initializing JpaMetamodelMappingContext…
+2024-09-16T17:18:19.146-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Initializing JpaMetamodelMappingContextï¿½
 2024-09-16T17:18:19.164-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] .c.JpaMetamodelMappingContextFactoryBean : Finished initializing JpaMetamodelMappingContext
 2024-09-16T17:18:19.177-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:18:19.209-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:18:19.209-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.beans.CachedIntrospectionResults     : Not strongly caching class [com.StrugglesHovel.StrugglesHovel.Models.Card] because it is not cache-safe
-2024-09-16T17:18:19.240-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepository…
+2024-09-16T17:18:19.240-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepositoryï¿½
 2024-09-16T17:18:19.240-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:18:19.256-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.CardRepository.
 2024-09-16T17:18:19.265-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'userController'
@@ -3419,7 +3419,7 @@ Unconditional classes:
 2024-09-16T17:18:19.265-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpa.UserRepository.fragments#0'
 2024-09-16T17:18:19.265-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:18:19.265-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.beans.CachedIntrospectionResults     : Not strongly caching class [com.StrugglesHovel.StrugglesHovel.Models.User] because it is not cache-safe
-2024-09-16T17:18:19.265-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepository…
+2024-09-16T17:18:19.265-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepositoryï¿½
 2024-09-16T17:18:19.265-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2024-09-16T17:18:19.272-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.StrugglesHovel.StrugglesHovel.Repositories.UserRepository.
 2024-09-16T17:18:19.272-05:00 DEBUG 11768 --- [StrugglesHovel] [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'corsConfigurer'
