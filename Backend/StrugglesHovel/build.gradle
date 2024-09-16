@@ -30,3 +30,10 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootRun {
+	systemProperty 'struggles_hovel_mysql_user', struggles_hovel_mysql_user
+	systemProperty 'struggles_hovel_hostname', struggles_hovel_hostname
+	systemProperty 'struggles_hovel_mysql_pass', struggles_hovel_mysql_pass
+}
+
